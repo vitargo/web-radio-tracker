@@ -36,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
         TimerTask timerTask = new TimerTask() {
             @Override
             public void run() {
-                System.out.println("!!!!! = " + isInternetConnected(MainActivity.this));
                 showToast(isInternetConnected(MainActivity.this));
                 SongTrackerTask task = new SongTrackerTask(helper, MainActivity.this);
                 task.execute();

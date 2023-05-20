@@ -82,7 +82,7 @@ public class SongTrackerTask extends AsyncTask<URL, Void, Song> {
         }
         TextView text = activity.findViewById(R.id.textview_first);
         String textSong;
-        if (song != null) {
+        if (song != null && text != null) {
             textSong = song.getArtist() + " \n " + song.getTitle();
             text.setText(textSong);
         }

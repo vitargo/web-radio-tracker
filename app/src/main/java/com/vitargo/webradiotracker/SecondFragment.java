@@ -26,22 +26,16 @@ public class SecondFragment extends Fragment {
     @Override
     public View onCreateView(
             LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState
-    ) {
-
-
+            Bundle savedInstanceState) {
         binding = FragmentSecondBinding.inflate(inflater, container, false);
         return binding.getRoot();
-
     }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         helper = new SongTrackerDBHelper(this.getContext());
         TableLayout table = view.findViewById(R.id.song_list);
         updateTable(table);
-
         super.onViewCreated(view, savedInstanceState);
-
         binding.buttonSecond.setOnClickListener(view1 -> NavHostFragment.findNavController(SecondFragment.this)
                 .navigate(R.id.action_SecondFragment_to_FirstFragment));
     }
@@ -51,7 +45,6 @@ public class SecondFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
-
     private void updateTable(TableLayout table){
         List<Song> songs = helper.getAllSongs();
         for (Song song : songs){
@@ -71,7 +64,6 @@ public class SecondFragment extends Fragment {
             date.setText(song.getDate());
             row.addView(date);
             table.addView(row);
-            System.out.println("CHSILT = " + table.getChildCount());
         }
     }
 }
